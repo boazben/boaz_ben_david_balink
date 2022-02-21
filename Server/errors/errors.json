@@ -1,0 +1,10 @@
+[
+    {
+        "errorCode": 11,
+        "errorString": "Invalid field" 
+    },
+    {
+        "errorCode": 12,
+        "errorString": "Not found"
+    }
+]
