@@ -4,6 +4,8 @@ import Row from './Row'
 import TableHeader from './TableHeader'
 import ServerReq from '../../utils/ServerReq'
 import { Link } from 'react-router-dom'
+import { StyledUsersTable } from '../../styles/UsersTable.styled'
+import { English } from '../../utils/dictionary'
 
 export const UsersContext = createContext()
 
@@ -51,7 +53,7 @@ export default function UsersTable() {
   
     return (
       // TODO: Error
-        <table>
+        <StyledUsersTable ltr={language == English}>
             <tbody>
               <UsersContext.Provider value={[users, setUsers]}>
 
@@ -66,6 +68,6 @@ export default function UsersTable() {
                   })}
               </UsersContext.Provider>
             </tbody>
-        </table>
+        </StyledUsersTable>
     )
 }
