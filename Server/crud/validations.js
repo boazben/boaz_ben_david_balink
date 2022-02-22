@@ -1,12 +1,9 @@
 const validator = require('validator')
 
-exports.userName = function userName(userName) {
-    if (typeof(userName?.first) === "string" & typeof(userName?.last) === "string") {
-        console.log('Step 1');
-        if (userName.first.length > 2 && userName.last.length < 20 && userName.last.length > 2 && userName.last.length < 20) {
-            console.log('Step 2');
-            if(/^[a-zA-Z\u0080-\uFFFF]+$/.test(userName.first) && /^[a-zA-Z\u0080-\uFFFF]+$/.test(userName.last))
-            console.log('Step 3');
+exports.name = function name(name) {
+    if (typeof name=== "string") {
+        if (name.length >= 2 && name.length <= 20) {
+            if(/^[\sa-zA-Z\u0080-\uFFFF]+$/.test(name))
                 return true
         }
     }

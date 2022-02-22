@@ -3,11 +3,10 @@ const UserControllers = require('./controllers/users.controller')
 module.exports = function Router(app){
 
     // Get user: 
-    app.get('/user/:id/:one?', async (req, res) => {
+    app.get('/user?', async (req, res) => {
         try {
-            const {id, one} = req.params
-            const getAll = req.query.getAll
-            const user = await UserControllers.getUser(id, one, getAll)
+            const {id, one, all} = req.query
+            const user = await UserControllers.getUser(id, one, all)
             res.send(user)
         } catch (error) {
             res.status(400).send({error: error.message || error});

@@ -1,4 +1,4 @@
-import {English} from './dictionary';
+import {English} from './utils/dictionary';
 import { createContext, useState } from 'react';
 import Header from './Header/Header';
 import { Route, Routes } from 'react-router-dom';

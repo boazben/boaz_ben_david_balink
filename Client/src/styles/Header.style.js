@@ -6,6 +6,7 @@ export const StyledHeader = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 0 15px;
+    height:  ${({theme}) => theme.dimensions.headerHeight};
 
     
 `

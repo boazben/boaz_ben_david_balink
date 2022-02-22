@@ -6,5 +6,9 @@ exports.theme = {
   
     fonts: {
       heebo: "'Heebo', sans-serif"
+    },
+
+    dimensions: {
+      headerHeight: '70px'
     }
   }

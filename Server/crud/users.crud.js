@@ -6,13 +6,14 @@ const Validations = require('./validations');
 // The four basic actions: create, read, update, delete (CRUD):
 
 function create(user) {
-
-    console.log(user.name);
-
+    console.log(user.lastName);
     // Validate the user fields:
 
-    // Name: 
-    if (!Validations.userName(user.name)) return ReturnVal(false, null, 11, "Invalid username")
+    // Firs Name: 
+    if (!Validations.name(user.firstName)) return ReturnVal(false, null, 11, "Invalid firts name")
+
+    // Last Name: 
+    if (!Validations.name(user.lastName)) return ReturnVal(false, null, 11, "Invalid last name")
 
     // Phone:
     if (!Validations.phone(user.phone)) return ReturnVal(false, null, 11, "Invalid phone")
@@ -21,7 +22,7 @@ function create(user) {
     if (!Validations.age(user.age)) return ReturnVal(false, null, 11, "Invalid age")
 
     // Checking for no additional field:
-    if (Object.keys(user).length !== 3) return ReturnVal(false, null, 11, "The user should only contain name, age and phone number")
+    if (Object.keys(user).length !== 4) return ReturnVal(false, null, 11, "The user should only contain first name, last name, age and phone number")
     
     // Create id field:
     user.id = uuidv4();
@@ -63,8 +64,11 @@ function update(filter, newData) {
 
      // Validate the user fields to update:
 
-    // Name: 
-    if (newData.name && !Validations.userName(newData.name)) return ReturnVal(false, null, 11, "Invalid user name")
+    // Firs Name: 
+    if (!Validations.name(user.firstName)) return ReturnVal(false, null, 11, "Invalid firts name")
+
+    // Last Name: 
+    if (!Validations.name(user.lastName)) return ReturnVal(false, null, 11, "Invalid last name")
 
     // Phone:
     if (newData.phone && !Validations.phone(newData.phone)) return ReturnVal(false, null, 11, "Invalid phone")

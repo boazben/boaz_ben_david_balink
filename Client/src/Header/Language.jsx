@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { LanguageContext } from '../App'
-import {Hebrew, English} from '../dictionary'
+import {Hebrew, English} from '../utils/dictionary'
 import { StyledIcon } from '../styles/Icon.styled'
 
 
