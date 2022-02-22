@@ -3,10 +3,9 @@ import { LanguageContext } from '../../App'
 import CellHeader from './CellHeader'
 import { UsersContext } from './UsersTable'
 
-export default function TableHeader({usersState, rend}) {
+export default function TableHeader({usersState}) {
     const [language] = useContext(LanguageContext)
-    const [users, setUsers] = usersState
-    const [render, setRender] = rend;
+    const [users, setUsers] = useContext(UsersContext)
     const [sort, setSort] = useState({
         name: "null",
         downToUp: true
@@ -49,23 +48,21 @@ export default function TableHeader({usersState, rend}) {
     function sorted(name, objName) {
       if(sort.name.includes(name)) {
         sort.downToUp ?
-        setUsers(users.sort((a, b) => (a[objName] > b[objName]) ? -1 : ((b[objName] > a[objName]) ? 1 : 0)))
-        : setUsers(users.sort((a, b) => (a[objName] > b[objName]) ? 1 : ((b[objName] > a[objName]) ? -1 : 0)))
+        setUsers(users => ([...users.sort((a, b) => (a[objName] > b[objName]) ? -1 : ((b[objName] > a[objName]) ? 1 : 0))]))
+        : setUsers(users=> ([...users.sort((a, b) => (a[objName] > b[objName]) ? 1 : ((b[objName] > a[objName]) ? -1 : 0))]))
         
         setSort({
           name: name,
           downToUp: !sort.downToUp
         })
 
-        setRender(!render)
   
       } else {
-        setUsers(users.sort((a, b) => (a[objName] > b[objName]) ? 1 : ((b[objName] > a[objName]) ? -1 : 0)))
+        setUsers(users => ([...users.sort((a, b) => (a[objName] > b[objName]) ? 1 : ((b[objName] > a[objName]) ? -1 : 0))]))
         setSort({
           name: name,
           downToUp: true
         })
-        setRender(!render)
       }
     }
 

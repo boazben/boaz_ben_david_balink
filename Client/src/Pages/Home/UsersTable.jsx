@@ -3,6 +3,7 @@ import { LanguageContext } from '../../App'
 import Row from './Row'
 import TableHeader from './TableHeader'
 import ServerReq from '../../utils/ServerReq'
+import { Link } from 'react-router-dom'
 
 export const UsersContext = createContext()
 
@@ -52,11 +53,18 @@ export default function UsersTable() {
       // TODO: Error
         <table>
             <tbody>
-                <TableHeader rend={[render, setRender]} usersState={[users, setUsers]}/>
+              <UsersContext.Provider value={[users, setUsers]}>
+
+                <TableHeader/>
 
                 {users && users.map((user, index) => {
-                    return <Row key={user.id} user={user} index={index} delete={deleteUser}/>
-                })}
+                  return (
+                    <Row key={user.id} user={user} index={index} delete={deleteUser} />
+                    
+                    )
+                    
+                  })}
+              </UsersContext.Provider>
             </tbody>
         </table>
     )

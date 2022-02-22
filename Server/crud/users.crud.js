@@ -65,10 +65,10 @@ function update(filter, newData) {
      // Validate the user fields to update:
 
     // Firs Name: 
-    if (!Validations.name(user.firstName)) return ReturnVal(false, null, 11, "Invalid firts name")
+    if (!Validations.name(newData.firstName)) return ReturnVal(false, null, 11, "Invalid firts name")
 
     // Last Name: 
-    if (!Validations.name(user.lastName)) return ReturnVal(false, null, 11, "Invalid last name")
+    if (!Validations.name(newData.lastName)) return ReturnVal(false, null, 11, "Invalid last name")
 
     // Phone:
     if (newData.phone && !Validations.phone(newData.phone)) return ReturnVal(false, null, 11, "Invalid phone")
@@ -126,5 +126,5 @@ function del(id) {
     fs.writeFileSync('./db/users.json', JSON.stringify(users, null, 4))
 
     // Return success and the id of the user that deleted:
-    return ReturnVal(true, `The user: ${user.name.first} ${user.name.last} has been deleted`);
+    return ReturnVal(true, `The user: ${user.firstName} ${user.lastName} has been deleted`);
 }exports.del = del;

@@ -18,6 +18,6 @@ exports.phone = function phone(phone) {
 }
 
 exports.age = function isAge(age) {
-    if (typeof age === "number" && age > 0 && age < 120) return true
+    if (typeof age === "number" && age > 0 && age <= 120) return true
     else return false
 }

@@ -9,10 +9,12 @@ export default function Language() {
 
     function change() {
         if (language.ChangeLanguage == 'Change to English') {
+            localStorage.language = 'en'
             setLanguage(English)
         }
         else if(language.ChangeLanguage == 'שינוי לעברית') {
-            setLanguage(Hebrew)
+          localStorage.language = 'he'  
+          setLanguage(Hebrew)
         }
     }
 

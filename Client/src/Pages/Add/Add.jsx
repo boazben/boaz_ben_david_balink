@@ -1,7 +1,13 @@
 import React from 'react'
+import UserForm from '../../Common/UserForm'
+import { MainStyled } from '../../styles/Main.styled'
+
 
 export default function Add() {
+
   return (
-    <div>Add</div>
+    <MainStyled>
+      <UserForm />
+    </MainStyled>
   )
 }

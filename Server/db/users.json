@@ -1,30 +1,23 @@
 [
     {
-        "firstName": "בעז",
-        "lastName": "בן דוד",
+        "firstName": "Boaz",
+        "lastName": "Ben David",
         "phone": "0547534244",
-        "age": 25,
-        "id": "be600604-40ce-44a6-8178-18c812c0a1ab"
+        "age": 15,
+        "id": "8a1c8e6f-d3e5-4fc4-8b1d-9c2fcd9c3299"
     },
     {
-        "firstName": "אביטל",
-        "lastName": "וייס",
-        "phone": "0543645275",
-        "age": 31,
-        "id": "79a2c267-a0af-4161-901d-3eaaa2963124"
+        "firstName": "Boaz",
+        "lastName": "Ben David",
+        "phone": "0547534244",
+        "age": 22,
+        "id": "58e518f1-2daf-4fa5-8c1d-7ea15beaef29"
     },
     {
-        "firstName": "חן",
-        "lastName": "בנגנו",
-        "phone": "0546375688",
-        "age": 25,
-        "id": "1103148b-aa20-4ac3-9ef5-3a34d3dc7185"
-    },
-    {
-        "firstName": "אסף",
-        "lastName": "יחיאלי",
-        "phone": "0543698254",
-        "age": 18,
-        "id": "01d08f33-d2b2-4be4-ab07-987737d3088d"
+        "firstName": "Boaz",
+        "lastName": "Ben David",
+        "phone": "0547534244",
+        "age": 12,
+        "id": "eb921b83-403f-45bf-b6c2-df83e9e19d3c"
     }
 ]

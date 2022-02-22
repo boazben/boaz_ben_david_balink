@@ -12,6 +12,13 @@ exports.Hebrew = {
     phone: 'טלפון',
     age: 'גיל',
     delete: 'מחיקה',
+    errors: {
+        firstName: 'שם פרטי חייב להכיל בין 2 ל- 20 תווים ואותיות בלבד',
+        lastName: 'שם משפחה חייב להכיל בין 2 ל- 20 תווים ואותיות בלבד',
+        phone: 'מספר טלפון לא חוקי',
+        age: 'גיל לא חוקי',
+        wrong: 'משהו השתבש - נסו שוב מאוחר יותר :)'
+    }
 
 }
 
@@ -29,4 +36,11 @@ exports.English = {
     phone: 'Phone',
     age: 'Age',
     delete: 'Delete',
+    errors: {
+        firstName: 'A first name must contain between 2 and 20 characters, letters only',
+        lastName: 'A last name must contain between 2 and 20 characters, letters only',
+        phone: 'Invalid phone number',
+        age: 'Invalid age',
+        wrong: 'Something went wrong- Try again later :)'
+    }
 }
