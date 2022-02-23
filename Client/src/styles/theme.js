@@ -4,6 +4,7 @@ exports.theme = {
       headerText: '#EE7E72',
       valid: '#3E56AB',
       invalid: '#EE7E72',
+      mainHeadline: '#8EA088',
       table :{
         headerBg: '#3E4F7E',
         headerBgHover: '#4F64A0',

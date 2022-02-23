@@ -26,7 +26,7 @@ export default function UsersTable() {
            let  arr = [...users.filter(user => {
               let result = true
               for( let conditional of filter) {
-                if (!user[conditional.name].includes(conditional.value)) {
+                if (!String(user[conditional.name])?.includes(conditional.value)) {
                     result = false
                 }
               }

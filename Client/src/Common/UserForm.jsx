@@ -9,10 +9,10 @@ import {English, Hebrew} from '../utils/dictionary'
 import { StyledButton } from '../styles/Button.styled'
 import { StyledContainer } from '../styles/Container.styled'
 
-export default function UserForm({toEdit}) {
+export default function UserForm({toEdit, userState}) {
     const [errorMessage, setErrorMessage] = useState('')
     const [language] = useContext(LanguageContext)
-    const [user, setUser] = useState()
+    const [user, setUser] = userState || []
     const params = useParams()
     const navigate = useNavigate()
   
@@ -25,24 +25,7 @@ export default function UserForm({toEdit}) {
           });
     }, [language])
 
-    useEffect(() => {
-        if(params.id) {
-            getUser(params.id)
-        }
-    }, [])
-
-    async function getUser(id) {
-        try {
-            const res = await serverReq('get', `/user?id=${id}&one=true`)
-            console.log(res);
-            if (!res.success) {
-              console.log(res)
-            }
-            else setUser(res.data)
-          } catch (error) {
-            console.log(error.response?.data?.error || error.message || error);
-          }
-    }
+   
   
     const inputs = [
       {
@@ -89,7 +72,6 @@ export default function UserForm({toEdit}) {
     async function submit(e) {
       try {
         e.preventDefault()
-        console.log(e.target);
         const values = Object.values(e.target)
             .reduce((acc, input) => !input.name ? acc : ({
                 ...acc,
@@ -97,7 +79,7 @@ export default function UserForm({toEdit}) {
             }), {}
             )
   
-            console.log(values);
+            
             let validation;
             if(params.id) validation = Validations.isUser(values)
             else validation = Validations.isFullUser(values)
@@ -113,6 +95,8 @@ export default function UserForm({toEdit}) {
             phone: values.phone,
             age: Number(values.age)
           }
+
+    
           
         let res;
         if(params.id) res = await serverReq('put', '/user/edit', {...userDetails, id: params.id})
@@ -131,6 +115,7 @@ export default function UserForm({toEdit}) {
     }
   return (
     <StyledForm onSubmit={(e) => submit(e)}>
+      
       {
         inputs.map((input, index) => {
           return <Input  key={index} input={input}/>

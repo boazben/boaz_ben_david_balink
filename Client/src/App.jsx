@@ -34,18 +34,14 @@ function App() {
     <div dir={language.dir}>
       <LanguageContext.Provider value={[language, setLanguage]}>
         <ThemeProvider theme={theme}>
-
           <GlobalStyles />
           <StyledApp >
-
             <Header />
-
             <Routes>
               <Route path='/' element={<Home />}/>
               <Route path='/add' element={<Add />}/>
               <Route path='/edit/:id' element={<Edit />}/>
             </Routes>
-
           </StyledApp>
         </ThemeProvider>
       </LanguageContext.Provider>

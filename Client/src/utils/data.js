@@ -4,7 +4,7 @@ export default {
             dictionaryName: "num",
             fieldDbName: "",
             toSort: false,
-            toSearch: true,
+            toSearch: false,
             searching: false,
             SearchWidth: '20px',
         },

@@ -79,7 +79,7 @@ function update(filter, newData) {
     // Leave only the valid fields:
     let updateUser = {};
     for (let [key, value] of Object.entries(newData)) {
-        if (key == "name" || key == "phone" || key == "age") {
+        if (key == "firstName" || key == "lastName" || key == "phone" || key == "age") {
            updateUser = {...updateUser, [key]: value}
         } 
       }
