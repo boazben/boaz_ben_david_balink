@@ -8,7 +8,7 @@ export default function Edit() {
 
   return (
     <MainStyled>
-      <UserForm />
+      <UserForm toEdit={true}/>
     </MainStyled>
   )
 }

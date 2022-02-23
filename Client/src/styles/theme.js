@@ -11,14 +11,29 @@ exports.theme = {
         rowHover: '#F9F6F1',
         text: '#413C35',
         delete: '#D78363'
-      }
+      },
+
+      input:{
+        shadow: '#767171',
+        bg: '#FAF8F4',
+      },
+
+      
     },
   
     fonts: {
-      heebo: "'Heebo', sans-serif"
+      heebo: "'Heebo', sans-serif",
+
+      input: {
+        size: '16px'
+      }
     },
 
     dimensions: {
       headerHeight: '70px'
+    },
+
+    screen: {
+      mobile: '768px',
     }
   }

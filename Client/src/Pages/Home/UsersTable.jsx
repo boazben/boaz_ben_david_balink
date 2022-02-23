@@ -8,13 +8,35 @@ import { StyledUsersTable } from '../../styles/UsersTable.styled'
 import { English } from '../../utils/dictionary'
 
 export const UsersContext = createContext()
+export const FilterContext = createContext()
 
 export default function UsersTable() {
     
     const [users, setUsers] = useState()
+    const [usersToView, setUserToView] = useState()
     const [error, setError] = useState('')
     const [language] = useContext(LanguageContext)
-    const [render, setRender] = useState(true)
+    const [filter, setFilter] = useState([])
+
+    useEffect(() => {
+      if(users) {
+        if(filter.length === 0){
+          setUserToView([...users])
+        } else {
+           let  arr = [...users.filter(user => {
+              let result = true
+              for( let conditional of filter) {
+                if (!user[conditional.name].includes(conditional.value)) {
+                    result = false
+                }
+              }
+              return result
+              })]
+          
+          setUserToView([...arr])
+        }
+      }
+    }, [users, filter])
   
     useEffect(() => {
       getUsers()
@@ -27,7 +49,6 @@ export default function UsersTable() {
     async function getUsers() {
       try {
         const res = await ServerReq('get', '/user?all=true')
-        console.log(res);
         if (!res.success) {
           console.log(res);
           setError(language.getUsersError)
@@ -56,16 +77,19 @@ export default function UsersTable() {
         <StyledUsersTable ltr={language == English}>
             <tbody>
               <UsersContext.Provider value={[users, setUsers]}>
+                <FilterContext.Provider value={[filter, setFilter]}>
+
 
                 <TableHeader/>
 
-                {users && users.map((user, index) => {
+                {usersToView && usersToView.map((user, index) => {
                   return (
                     <Row key={user.id} user={user} index={index} delete={deleteUser} />
                     
                     )
                     
                   })}
+                  </FilterContext.Provider>
               </UsersContext.Provider>
             </tbody>
         </StyledUsersTable>

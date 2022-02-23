@@ -47,6 +47,10 @@ export const StyledUsersTable = styled.table`
         min-width: 15px;
     }
 
+    th i {
+        font-size: 16px;
+    }
+
     tr:hover {
         background-color: ${({theme}) => theme.colors.table.rowHover};
     }

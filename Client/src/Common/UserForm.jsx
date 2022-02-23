@@ -1,10 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { createRef, useContext, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { LanguageContext } from '../App'
 import { StyledForm } from '../styles/Form.styled'
 import serverReq from '../utils/ServerReq'
 import Input from './Input'
 import Validations from '../utils/validations'
+import {English, Hebrew} from '../utils/dictionary'
+import { StyledButton } from '../styles/Button.styled'
+import { StyledContainer } from '../styles/Container.styled'
 
 export default function UserForm({toEdit}) {
     const [errorMessage, setErrorMessage] = useState('')
@@ -14,7 +17,12 @@ export default function UserForm({toEdit}) {
     const navigate = useNavigate()
   
     useEffect(() => {
-        setErrorMessage()
+        Object.entries(language == English ? Hebrew.errors : English.errors).find(([key, value]) => {
+            if (value === errorMessage) {
+              setErrorMessage(language.errors[key])
+              return true;
+            }
+          });
     }, [language])
 
     useEffect(() => {
@@ -40,7 +48,7 @@ export default function UserForm({toEdit}) {
       {
         placeholder: language.firstName,
         type: "text",
-        icon: "",
+        icon: "fas fa-user",
         validator: Validations.name,
         isNum: false,
         dbField: 'firstName',
@@ -49,7 +57,7 @@ export default function UserForm({toEdit}) {
       {
         placeholder: language.lastName,
         type: "text",
-        icon: "",
+        icon: "fas fa-users",
         validator: Validations.name,
         isNum: false,
         dbField: 'lastName',
@@ -60,7 +68,7 @@ export default function UserForm({toEdit}) {
         type: "number",
         max: 120,
         min: 1,
-        icon: "",
+        icon: "fas fa-calendar",
         validator: Validations.isAge,
         isNum: true,
         dbField: 'age',
@@ -69,7 +77,7 @@ export default function UserForm({toEdit}) {
       {
         placeholder: language.phone,
         type: "tel",
-        icon: "",
+        icon: "fas fa-mobile-alt",
         validator: Validations.phone,
         isNum: true,
         dbField: 'phone',
@@ -81,6 +89,7 @@ export default function UserForm({toEdit}) {
     async function submit(e) {
       try {
         e.preventDefault()
+        console.log(e.target);
         const values = Object.values(e.target)
             .reduce((acc, input) => !input.name ? acc : ({
                 ...acc,
@@ -88,12 +97,13 @@ export default function UserForm({toEdit}) {
             }), {}
             )
   
+            console.log(values);
             let validation;
             if(params.id) validation = Validations.isUser(values)
             else validation = Validations.isFullUser(values)
             
             if (!validation.success) {
-              setErrorMessage(language.errors[validation.errorDictionary])
+              setErrorMessage(language.errors.invalid)
               return;
             }
   
@@ -103,8 +113,6 @@ export default function UserForm({toEdit}) {
             phone: values.phone,
             age: Number(values.age)
           }
-  
-        console.log({...userDetails, id: params.id});
           
         let res;
         if(params.id) res = await serverReq('put', '/user/edit', {...userDetails, id: params.id})
@@ -128,9 +136,24 @@ export default function UserForm({toEdit}) {
           return <Input  key={index} input={input}/>
         })
       }
-      <div>{errorMessage}</div>
-        <input type="submit" />
-        <Link to="/">back</Link>
-      </StyledForm>
+      <h2>{errorMessage}</h2>
+
+      <StyledContainer dis='flex' width='100%' jcFlex='space-between'>
+        <StyledButton 
+        type="submit"
+        width='150px' padding='10px' br='10px' fs='20px' fw='bold'
+        >
+          {toEdit ? language.submitEdit : language.submitAdd}
+        </StyledButton>
+      
+          <Link to="/">
+            <StyledButton width='150px' padding='10px' br='10px' fs='20px' fw='bold' bg='#cd633a' bgHover='#D78363'>
+              {language.back}
+            </StyledButton>
+          </Link>
+      </StyledContainer>
+    </StyledForm>
+
+      
   )
 }

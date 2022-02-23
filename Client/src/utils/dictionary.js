@@ -12,12 +12,17 @@ exports.Hebrew = {
     phone: 'טלפון',
     age: 'גיל',
     delete: 'מחיקה',
+    submitAdd: 'הוסף',
+    submitEdit: 'שמור',
+    back: 'חזרה',
     errors: {
+        name: 'שם חייב להכיל בין 2 ל- 20 תווים ואותיות בלבד',
         firstName: 'שם פרטי חייב להכיל בין 2 ל- 20 תווים ואותיות בלבד',
         lastName: 'שם משפחה חייב להכיל בין 2 ל- 20 תווים ואותיות בלבד',
         phone: 'מספר טלפון לא חוקי',
         age: 'גיל לא חוקי',
-        wrong: 'משהו השתבש - נסו שוב מאוחר יותר :)'
+        wrong: 'משהו השתבש - נסו שוב מאוחר יותר :)',
+        invalid: 'יש למלא את הפרטים בצורה תקינה'
     }
 
 }
@@ -36,11 +41,16 @@ exports.English = {
     phone: 'Phone',
     age: 'Age',
     delete: 'Delete',
+    submitAdd: 'Add',
+    submitEdit: 'Save',
+    back: 'Back',
     errors: {
+        name: 'A name must contain between 2 and 20 characters, letters only',
         firstName: 'A first name must contain between 2 and 20 characters, letters only',
         lastName: 'A last name must contain between 2 and 20 characters, letters only',
         phone: 'Invalid phone number',
         age: 'Invalid age',
-        wrong: 'Something went wrong- Try again later :)'
+        wrong: 'Something went wrong- Try again later :)',
+        invalid: 'The details must be filled in properly'
     }
 }
