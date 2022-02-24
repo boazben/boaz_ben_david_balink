@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { LanguageContext } from '../../App';
 import { MainStyled } from '../../styles/Main.styled';
 import { StyledMainHeadlin } from '../../styles/MainHeadline';
-import ServerReq from '../../utils/ServerReq'
 import AddUserButton from './AddUserButton';
 import UsersTable from './UsersTable';
 

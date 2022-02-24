@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useImperativeHandle, useRef, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { LanguageContext } from '../App'
 import { StyledField } from '../styles/Field.styled'
 import { StyledInput } from '../styles/Input.styled'
@@ -7,7 +7,6 @@ import {English, Hebrew} from '../utils/dictionary'
 export default function Input({input}) {
     const [valid, setValid] = useState(true)
     const [errorMessage, setErrorMessage] = useState('')
-    // const [errorMessage, setErrorMessage] = errorState
     const [language] = useContext(LanguageContext)
 
     useEffect(() => {
@@ -18,7 +17,6 @@ export default function Input({input}) {
             }
           });
     }, [language])
-
 
     function isValid(str) {
         if(!str) {
@@ -36,8 +34,6 @@ export default function Input({input}) {
         }
     }
    
-    
-    
     return (
         <StyledField>
             <StyledInput valid={valid} width='300px' padding='5px'>

@@ -25,8 +25,7 @@ export default function UserForm({toEdit, userState}) {
           });
     }, [language])
 
-   
-  
+    
     const inputs = [
       {
         placeholder: language.firstName,
@@ -95,8 +94,6 @@ export default function UserForm({toEdit, userState}) {
             phone: values.phone,
             age: Number(values.age)
           }
-
-    
           
         let res;
         if(params.id) res = await serverReq('put', '/user/edit', {...userDetails, id: params.id})

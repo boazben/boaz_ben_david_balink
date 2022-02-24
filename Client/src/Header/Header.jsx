@@ -4,11 +4,7 @@ import Headline from './Headline';
 import Language from './Language'
 import Page from './Page'
 
-
-
 export default function Header() {
-  
-  
     return (
     <StyledHeader>
         <Page />

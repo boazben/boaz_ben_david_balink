@@ -15,9 +15,9 @@ export default function Edit() {
     if(params.id) {
         getUser(params.id)
     }
-}, [])
+  }, [])
 
-async function getUser(id) {
+  async function getUser(id) {
     try {
         const res = await serverReq('get', `/user?id=${id}&one=true`)
         if (!res.success) {
@@ -27,7 +27,7 @@ async function getUser(id) {
       } catch (error) {
         console.log(error.response?.data?.error || error.message || error);
       }
-}
+  }
 
   return (
     <MainStyled>

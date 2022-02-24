@@ -4,7 +4,6 @@ import UserForm from '../../Common/UserForm'
 import { MainStyled } from '../../styles/Main.styled'
 import { StyledMainHeadlin } from '../../styles/MainHeadline'
 
-
 export default function Add() {
   const [language] = useContext(LanguageContext)
 

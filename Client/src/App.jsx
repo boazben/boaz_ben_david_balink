@@ -1,5 +1,5 @@
-import {English, Hebrew} from './utils/dictionary';
-import { createContext, useEffect, useState } from 'react';
+import {English } from './utils/dictionary';
+import { createContext, useState } from 'react';
 import Header from './Header/Header';
 import { Route, Routes } from 'react-router-dom';
 import Add from './Pages/Add/Add';
@@ -15,20 +15,6 @@ export const LanguageContext = createContext()
 
 function App() {
   const [language, setLanguage] = useState(English)
-  
-  // useEffect(() => {
-  //   cheackLanguage()
-  // }, [])
-
-  // function cheackLanguage() {
-  //   if(localStorage?.language) {
-  //     if(localStorage?.language?.includes('en') && !(language == English)) 
-  //       setLanguage(English)
-  //     }
-  //     else if(localStorage?.language?.includes('he') && !(language == Hebrew)) {
-  //       setLanguage(Hebrew)
-  //     }
-  // }
 
   return (
     <div dir={language.dir}>

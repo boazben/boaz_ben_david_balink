@@ -73,7 +73,6 @@ export default function UsersTable() {
     
   
     return (
-      // TODO: Error
         <StyledUsersTable ltr={language == English}>
             <tbody>
               <UsersContext.Provider value={[users, setUsers]}>
