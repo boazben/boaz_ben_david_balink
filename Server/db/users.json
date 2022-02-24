@@ -26,5 +26,26 @@
         "phone": "0502321468",
         "age": 30,
         "id": "8e43dfc7-65f0-4635-b9e0-54afbe2324f2"
+    },
+    {
+        "firstName": "Boaz",
+        "lastName": "Ben David",
+        "phone": "0547534244",
+        "age": 22,
+        "id": "60262ce0-d9b3-47b8-aa3f-5f52faf70540"
+    },
+    {
+        "firstName": "Boaz",
+        "lastName": "Ben David",
+        "phone": "0547534244",
+        "age": 23,
+        "id": "26cb144c-1736-47d5-84ad-fc2ccff2f9ee"
+    },
+    {
+        "firstName": "אסף",
+        "lastName": "יחיאלי",
+        "phone": "0543698254",
+        "age": 18,
+        "id": "3d2c778d-776c-4579-9749-f04abe6ed511"
     }
 ]
